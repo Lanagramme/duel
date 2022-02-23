@@ -1,12 +1,12 @@
 function Decks(cards){
 
     const
-        // Librairy = new Map(cards),
+        // Library = new Map(cards),
         // Graveyard = new Map(),
         // Hand = new Map(),
         // Field = new Map(),
         // Exil = new Map(),
-        Librairy = cards,
+        Library = cards,
         Graveyard = [],
         Hand = [],
         Field = [],
@@ -21,7 +21,7 @@ function Decks(cards){
         }
 
     return {
-        get librairy(){ return Librairy },
+        get library(){ return Library },
         get graveyard(){ return Graveyard },
         get hand(){ return Hand },
         get field(){ return Field },
