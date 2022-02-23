@@ -1,11 +1,16 @@
 function Decks(cards){
 
     const
-        Librairy = new Map(cards),
-        Graveyard = new Map(),
-        Hand = new Map(),
-        Field = new Map(),
-        Exil = new Map(),
+        // Librairy = new Map(cards),
+        // Graveyard = new Map(),
+        // Hand = new Map(),
+        // Field = new Map(),
+        // Exil = new Map(),
+        Librairy = cards,
+        Graveyard = [],
+        Hand = [],
+        Field = [],
+        Exil = [],
         methods = {
             shuffle(deck){
                 deck.sort(() => Math.random() - 0.5);
