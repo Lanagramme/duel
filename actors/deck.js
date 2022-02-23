@@ -1,7 +1,7 @@
 function Decks(cards){
 
     const
-        Librairy = new Map(),
+        Librairy = new Map(cards),
         Graveyard = new Map(),
         Hand = new Map(),
         Field = new Map(),
