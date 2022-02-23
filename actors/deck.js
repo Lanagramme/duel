@@ -1,7 +1,7 @@
 function Decks(cards = []){
 
     const
-        Library = cards.keys(),
+        Library = [...cards.keys()],
         Graveyard = [],
         Hand = [],
         Field = [],
