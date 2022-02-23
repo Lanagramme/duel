@@ -25,4 +25,4 @@ function Decks(cards){
     }
 }
 
-module.export = Decks
+module.exports = Decks

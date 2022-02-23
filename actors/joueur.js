@@ -1,4 +1,4 @@
-require( "./deck.js" )
+let decks = require( "./deck.js" )
 
 let liste_des_cartes = [1,2,3,4]
 
@@ -6,13 +6,17 @@ class Joueur {
 	constructor (pv) {
 		this.decks = decks(liste_des_cartes)
 		this.init_pv = pv
-		this.pv = pv
+		this._pv = pv
 	}
 
 	set pv(pv) {
 		// l'arbitre décidera si il est possible d'avoir plus de pv que de init_pv
-		this.pv+= pv
+		this._pv+= pv
 		// l'arbitre définit le statut de défaite
+	}
+
+	get pv() {
+		return this._pv
 	}
 
 	piocher(){
