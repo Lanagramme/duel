@@ -15,7 +15,7 @@ function Decks(cards){
             shuffle(deck){
                 deck.sort(() => Math.random() - 0.5);
             },
-            moveto(from, to, target){
+            move(from, to, target){
                 to.push(from.splice(target))
             }
         }

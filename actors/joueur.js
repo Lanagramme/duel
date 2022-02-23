@@ -20,17 +20,17 @@ class Joueur {
 	}
 
 	piocher(){
-		return this.decks.move(this.decks.Library, this.library.length,this.decks.Hand)
+		return this.decks.move(this.decks.library, this.decks.hand, this.decks.library.length -1 )
 	}
 
 	attaquer(cible, attaquant){}
 
 	sacrifier(origin, target){
-		return this.decks.move(origin, target, this.decks.Graveyard)
+		return this.decks.move(origin, target, this.decks.graveyard)
 	}
 
 	jouer(carte){
-		return this.decks.move(this.decks.Hand, carte, this.decks.Field)
+		return this.decks.move(this.decks.hand,  this.decks.field,carte,)
 	}
 }
 
