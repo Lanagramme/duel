@@ -1,8 +1,8 @@
-import * from ./deck.js
+require( "./deck.js" )
 
 let liste_des_cartes = [1,2,3,4]
 
-class Joueur = {
+class Joueur {
 	constructor (pv) {
 		this.decks = decks(liste_des_cartes)
 		this.init_pv = pv
