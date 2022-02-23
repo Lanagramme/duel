@@ -21,6 +21,7 @@ function Decks(cards){
         get hand(){ return Hand },
         get field(){ return Field },
         get exil(){ return Exil },
+        get cards_list(){ return cards },
         ...methods
     }
 }
