@@ -3,10 +3,11 @@ let decks = require( "./deck.js" )
 let liste_des_cartes = [1,2,3,4]
 
 class Joueur {
-	constructor (pv) {
+	constructor (pv, atk) {
 		this.decks = decks(liste_des_cartes)
 		this.init_pv = pv
 		this._pv = pv
+		this._atk = atk
 	}
 
 	set pv(pv) {
@@ -23,7 +24,9 @@ class Joueur {
 		return this.decks.move(this.decks.library, this.decks.hand, this.decks.library.length -1 )
 	}
 
-	attaquer(cible, attaquant){}
+	attaquer(cible, attaquant){
+		return this._atk(cible, attaquant)
+	}
 
 	sacrifier(origin, target){
 		return this.decks.move(origin, target, this.decks.graveyard)
