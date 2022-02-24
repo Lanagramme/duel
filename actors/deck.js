@@ -1,12 +1,7 @@
-function Decks(cards){
+function Decks(cards = []){
 
     const
-        // Library = new Map(cards),
-        // Graveyard = new Map(),
-        // Hand = new Map(),
-        // Field = new Map(),
-        // Exil = new Map(),
-        Library = cards,
+        Library = [...cards.keys()],
         Graveyard = [],
         Hand = [],
         Field = [],
