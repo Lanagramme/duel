@@ -4,8 +4,8 @@ let
 
 module.exports = {
 
-    get question(){return msg},
-    get exit(){return exit_command},
+    get question(){ return msg },
+    get exit(){ return exit_command },
 
     command_list: {
         help(){ console.log(Object.keys(this).filter(name => name != "help")) }
@@ -34,8 +34,10 @@ module.exports = {
     },
 
     do(command, parameters){
-        return this.command_list[command]
-            ? this.command_list[command](...parameters)
-            :  console.log("Unknow command")
+        const msgs = this.command_list[command]
+                ? this.command_list[command](...parameters)
+                : ["Unknow command"];
+        
+        (Array.isArray(msgs) ? msgs : [msgs]).forEach(msg => console.log(...Array.isArray(msg) ? msg : [msg]))
     }
 }

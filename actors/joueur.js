@@ -13,16 +13,21 @@ let liste_des_cartes = [
 	{ name: "Stunning teaching teacher", 	power: 10, health: 95 },
 ]
 
-function fight_rules(player, card_key){
+function fight_rules(player, card_key, res){
 	return ({health, name}) => {
 		if(health > 0) {
-			console.log( name, "has", health, "health left" )
+			res.push( name + " has " + health + " health left" )
 		} else {
 			player.kill('field', card_key)
-			console.log( name, "has been killed" )
+			res.push( name+" has been killed" )
 		}
 	}
 }
+/* =================================================================== */
+// PLAYER
+// ======================================================================
+// Entité stoquant les données d'un joueur
+// ======================================================================
 
 class Player {
 	constructor (pv) {
@@ -45,15 +50,18 @@ class Player {
 		return this.decks.move(this.decks.library, this.decks.hand, this.decks.library.length -n, n )
 	}
 
-	attack(card_key, target){
-		let source = this.decks.card_data(this.decks.field[card_key])
+	attack(card_key, targeted_player, tk){
+		const target = targeted_player.decks.card_data(targeted_player.decks.field[tk-1])
+		const source = this.decks.card_data(this.decks.field[card_key])
 		switch (true) {
 			case !!(source && target):
-				return [source.name,"deal",target.defense(source.attack(), fight_rules(this, card_key)), "damage to", target.name].join(" ")
+				const res = []
+				res.push(source.name+" deal "+target.defense(source.attack(), fight_rules(targeted_player, card_key, res))+ " damage to "+ target.name)
+				return res.reverse()
 				
 		
 			case !!source:
-				return [source.name," missed his attack"].join(" ")
+				return source.name+" missed his attack"
 				
 		
 			default:
